@@ -15,11 +15,11 @@ BUILDPACK_XVFB_PACKAGE=https://s3.amazonaws.com/heroku.buildpacks/${FILE_NAME}
 mkdir -p $CACHE_DIR
 if ! [ -e $CACHE_DIR/$FILE_NAME ]; then
   echo "-----> Fetching XVFB binaries at ${BUILDPACK_XVFB_PACKAGE}"
-  curl $BUILDPACK_XVFB_PACKAGE -s -o $CACHE_DIR/$FILE_NAME
+  curl $BUILDPACK_XVFB_PACKAGE -L -o $CACHE_DIR/$FILE_NAME
 fi
 
 echo "-----> Extracting XVFB binaries to ${BUILD_DIR}/vendor/xvfb"
 mkdir -p $BUILD_DIR/vendor/xvfb
 mkdir -p $CACHE_DIR/vendor-xvfb
 tar jxf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR/vendor-xvfb
-cp -r $CACHE_DIR/vendor-xvfb/Xvfb/* $BUILD_DIR/
+mv $CACHE_DIR/vendor-xvfb/ $BUILD_DIR/vendor/
