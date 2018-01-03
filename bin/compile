@@ -22,4 +22,4 @@ echo "-----> Extracting XVFB binaries to ${BUILD_DIR}/vendor/xvfb"
 mkdir -p $CACHE_DIR/vendor-xvfb
 mkdir -p $BUILD_DIR/vendor
 tar jxf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR/vendor-xvfb
-mv $CACHE_DIR/vendor-xvfb/ $BUILD_DIR/vendor/
+mv $CACHE_DIR/vendor-xvfb/Xvfb $BUILD_DIR/vendor/
